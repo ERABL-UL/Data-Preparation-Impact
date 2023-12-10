@@ -62,12 +62,14 @@ python3 ./DataPre/db_main.py --path ./Datasets/KITTI-360/validation --split vali
 python3 ./DataPre/aag_threads.py --path ./Datasets/KITTI-360/train --split train`
 python3 ./DataPre/aag_threads.py --path ./Datasets/KITTI-360/validation --split validation`
 ```
+
 # PointNet++
 Run the following to train and test with PointNet++:
 ```
 python3 ./Pointnet2/train_pointnet2.py --data-dir ./Datasets/KITTI-360/rknn --epochs 100 --batch-size 32
 python3 ./Pointnet2/inference.py --data-dir ./Datasets/KITTI-360/rknn --trained-epoch 100 --batch-size 32
 ```
+
 # KPConv
 Run the following to train and test with KPConv:
 ```
