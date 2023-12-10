@@ -1,4 +1,7 @@
 # Data Preparation Impact on Semantic Segmentation of 3D Mobile LiDAR Point Clouds Using Deep Neural Networks
+**[Paper](https://www.mdpi.com/2072-4292/15/4/982)**
+
+![](./overview.png)
 
 Installing pre-requisites:
 
@@ -8,3 +11,40 @@ Installing pre-requisites:
 * Compile the C++ extension modules for python located in `./KPConv/cpp_wrappers`. Open a terminal in this folder, and run:
 
           sh compile_wrappers.sh
+
+# Downloading Datasets
+
+Download [KITTI-360](https://www.cvlibs.net/datasets/kitti-360/user_login.php) inside the directory ```./Datasets/KITTI-360```. The directory structure should be:
+```
+./
+└── Datasets/
+    └── KITTI360
+        └── train
+          └── sequences
+            ├── 00/           
+            │   ├── {start_frame:0>10}_{end_frame:0>10}.ply
+                └── ...
+        └── validation
+            └── sequences
+                ├── 00/
+                │   ├── {start_frame:0>10}_{end_frame:0>10}.ply
+                    └── ...
+        └── test
+            └── sequences
+                ├── 08/
+                │   ├── {start_frame:0>10}_{end_frame:0>10}.ply
+                |   └── ...
+                ├── 18/
+                │   ├── {start_frame:0>10}_{end_frame:0>10}.ply
+                    └── ...
+```
+
+# Data Preparation
+First, we need to prepare large point clouds of KITTI-360 for the input of the network. We follow the instructions of [Mahmoudi Kouhi, Reza et al.]() to prepare the data:
+
+```
+python3 ./data_preparation/fps_knn_threading.py --path ./Datasets/KITTI-360/train \
+         --save-path ./Datasets/KITTI-360/fps_knn --split train
+python3 ./data_preparation/fps_knn_threading.py --path ./Datasets/KITTI-360/validation \
+         --save-path ./Datasets/KITTI-360/fps_knn --split validation
+```
