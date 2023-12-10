@@ -9,8 +9,6 @@ OSToolBox
 hydra-core==0.11.3
 pytorch-lightning==0.7.1
 
-./pointnet2_ops_lib/.
+./Pointnet2/pointnet2_ops_lib/.
 
-* Compile the C++ extension modules for python located in `cpp_wrappers`. Open a terminal in this folder, and run:
 
-          sh compile_wrappers.sh
