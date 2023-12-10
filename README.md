@@ -75,3 +75,20 @@ Run the following to train and test with KPConv:
 ```
 python3 ./KPConv/train_AggData.py --data-dir ./Datasets/KITTI-360/rknn --epochs 100 
 ```
+
+# Citation
+```
+@Article{rs15040982,
+AUTHOR = {Mahmoudi Kouhi, Reza and Daniel, Sylvie and Giguère, Philippe},
+TITLE = {Data Preparation Impact on Semantic Segmentation of 3D Mobile LiDAR Point Clouds Using Deep Neural Networks},
+JOURNAL = {Remote Sensing},
+VOLUME = {15},
+YEAR = {2023},
+NUMBER = {4},
+ARTICLE-NUMBER = {982},
+URL = {https://www.mdpi.com/2072-4292/15/4/982},
+ISSN = {2072-4292},
+DOI = {10.3390/rs15040982}
+}
+
+```
