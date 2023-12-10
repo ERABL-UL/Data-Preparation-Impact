@@ -3,7 +3,7 @@
 
 ![](./overview.png)
 
-Installing pre-requisites:
+# Installing pre-requisites:
 
 * Install `python` --This repo is tested with `{3.8}`
 * Install `torch` --This repo is tested with `{1.5.0}` and `cuda 10.2`
@@ -40,11 +40,36 @@ Download [KITTI-360](https://www.cvlibs.net/datasets/kitti-360/user_login.php) i
 ```
 
 # Data Preparation
-First, we need to prepare large point clouds of KITTI-360 for the input of the network. We follow the instructions of [Mahmoudi Kouhi, Reza et al.]() to prepare the data:
+First, we need to prepare large point clouds of KITTI-360 for the input of the networks. Choose one of the proposed methods and run the related following to generate the sampled point clouds:
 
+* Fixed Radius:
 ```
-python3 ./data_preparation/fps_knn_threading.py --path ./Datasets/KITTI-360/train \
-         --save-path ./Datasets/KITTI-360/fps_knn --split train
-python3 ./data_preparation/fps_knn_threading.py --path ./Datasets/KITTI-360/validation \
-         --save-path ./Datasets/KITTI-360/fps_knn --split validation
+python3 ./DataPre/fr_threads.py --path ./Datasets/KITTI-360/train --split train`
+python3 ./DataPre/fr_threads.py --path ./Datasets/KITTI-360/validation --split validation`
+```
+* Random KNN:
+```
+python3 ./DataPre/rknn_threads.py --path ./Datasets/KITTI-360/train --split train`
+python3 ./DataPre/rknn_threads.py --path ./Datasets/KITTI-360/validation--split validation`
+```
+* Density Based:
+```
+python3 ./DataPre/db_main.py --path ./Datasets/KITTI-360/train --split train`
+python3 ./DataPre/db_main.py --path ./Datasets/KITTI-360/validation --split validation`
+```
+* Axis-alined Growing:
+```
+python3 ./DataPre/aag_threads.py --path ./Datasets/KITTI-360/train --split train`
+python3 ./DataPre/aag_threads.py --path ./Datasets/KITTI-360/validation --split validation`
+```
+# PointNet++
+Run the following to train and test with PointNet++:
+```
+python3 ./Pointnet2/train_pointnet2.py --data-dir ./Datasets/KITTI-360/rknn --epochs 100 --batch-size 32
+python3 ./Pointnet2/inference.py --data-dir ./Datasets/KITTI-360/rknn --trained-epoch 100 --batch-size 32
+```
+# KPConv
+Run the following to train and test with KPConv:
+```
+python3 ./KPConv/train_AggData.py --data-dir ./Datasets/KITTI-360/rknn --epochs 100 
 ```
