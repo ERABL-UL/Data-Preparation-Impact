@@ -1,6 +1,5 @@
 # Data Preparation Impact on Semantic Segmentation of 3D Mobile LiDAR Point Clouds Using Deep Neural Networks
-**[Paper](https://www.mdpi.com/2072-4292/15/4/982)**
-
+This repo contains the code for this **[Paper](https://www.mdpi.com/2072-4292/15/4/982)**. We used and modified the codes of [KPConv](https://github.com/HuguesTHOMAS/KPConv-PyTorch/tree/master) and [PointNet++ ](https://github.com/erikwijmans/Pointnet2_PyTorch/tree/master) (implementation for pytorch).
 ![](./overview.png)
 
 # Installing pre-requisites:
