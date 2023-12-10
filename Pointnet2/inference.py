@@ -33,8 +33,8 @@ def test(params, model, criterion, test_loader):
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description='SparseSimCLR')
 
-    parser.add_argument('--data-dir', type=str, default='/home/reza/PHD/Data/KITTI360/fps_knn',
-                        help='Path to dataset (default: ./Datasets/SemanticKITTI')
+    parser.add_argument('--data-dir', type=str, default='/home/reza/PHD/Data/KITTI360/rknn',
+                        help='Path to dataset (default: ./Datasets/KITTI360')
     parser.add_argument('--batch-size', type=int, default=32, metavar='N',
                         help='input training batch-size')
     parser.add_argument('--trained-epoch', type=str, default="9",
