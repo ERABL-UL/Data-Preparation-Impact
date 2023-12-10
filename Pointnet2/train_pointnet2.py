@@ -8,8 +8,8 @@ import argparse
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description='SparseSimCLR')
 
-    parser.add_argument('--data-dir', type=str, default='/home/reza/PHD/Data/KITTI360/fps_knn',
-                        help='Path to dataset (default: ./Datasets/SemanticKITTI')
+    parser.add_argument('--data-dir', type=str, default='/home/reza/PHD/Data/KITTI360/rknn',
+                        help='Path to dataset (default: ./Datasets/KITTI360')
     parser.add_argument('--batch-size', type=int, default=32, metavar='N',
                         help='input training batch-size')
     parser.add_argument('--epochs', type=int, default=10, metavar='N',
