@@ -1,0 +1,21 @@
+hydra:
+  run:
+    dir: outputs
+
+gpus:
+    - 0
+
+optimizer: SGD
+
+task_model: semseg-msg
+
+model: msg
+use_xyz: True
+
+distrib_backend: dp
+
+task: semseg
+
+c_in: 0
+
+num_classes: 7
